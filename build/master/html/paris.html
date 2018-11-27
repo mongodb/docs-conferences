@@ -1,0 +1,1348 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css' />
+  <title>MongoDB Paris .local</title>
+  <link rel="shortcut icon" href="https://media.mongodb.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index" />
+
+  <meta name="release" content=""/>
+  <meta name="version" content="master"/>
+  <meta name="DC.Source" content="https://github.com/mongodb/10gen/baas-docs/blob/master/source/index.txt"/>
+  <meta property="og:image" content="http://s3.amazonaws.com/info-mongodb-com/_com_assets/cms/mongodb-for-giant-ideas-bbab5c3cf8.png">
+  <meta property="og:image:secure_url" content="https://webassets.mongodb.com/_com_assets/cms/mongodb-for-giant-ideas-bbab5c3cf8.png"><meta content="MongoDB Paris .local : La documentation de MongoDB offre des parcours d'apprentissage pour les administrateurs, les développeurs, et les analystes." name="description" />
+<meta content="MongoDB Paris .local : La documentation de MongoDB offre des parcours d'apprentissage pour les administrateurs, les développeurs, et les analystes." name="keywords" />
+
+  
+   <link rel="stylesheet" href="https://docs.mongodb.com/manual/_static/mongodb-docs.css" type="text/css" />
+   <link rel="stylesheet" href="https://docs.mongodb.com/manual/_static/pygments.css" type="text/css" />
+   <link rel="stylesheet" href="https://docs.mongodb.com/manual/_static/css/navbar.min.css" type="text/css" />
+    
+    <script type="text/javascript" src="https://docs.mongodb.com/manual/_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="https://docs.mongodb.com/manual/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://docs.mongodb.com/manual/_static/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="https://docs.mongodb.com/manual/_static/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="https://docs.mongodb.com/manual/_static/controller.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" href="https://docs.mongodb.com/osd.xml" title="MongoDB Help"/>
+<!-- <link rel="index" title="Index" href="genindex/" /> -->
+<link rel="search" title="Search" href="search/" />
+<link rel="top" title="MongoDB Stitch" href="#" />
+<link rel="next" title="Getting Started" href="getting-started/" /><script type='text/javascript'>
+   var gptadslots=[];
+   var googletag = googletag || {};
+   googletag.cmd = googletag.cmd || [];
+   (function(){ var gads = document.createElement('script');
+      gads.async = true; gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+   })();
+</script>
+
+<script type="text/javascript">
+   googletag.cmd.push(function() {
+
+      //Adslot 1 declaration
+      googletag.defineSlot('/40039723/docs_stitch', [160, 600], 'div-gpt-ad-1500065885324-0').addService(googletag.pubads());
+
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().enableAsyncRendering();
+      googletag.enableServices();
+   });
+</script>
+
+<style>
+#left-column {
+  display: none !important;
+}
+</style>
+
+</head>
+<body data-project="stitch" data-project-title="MongoDB Stitch" data-branch="master" data-enable-marian=1>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-JQHP"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+     {'gtm.start': new Date().getTime(),event:'gtm.js'}
+   );var f=d.getElementsByTagName(s)[0],
+   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+   '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-JQHP');</script>
+  <!-- End Google Tag Manager -->
+<div id="navbar" data-navprops='{"links": [{"url": "https://docs.mongodb.com/manual/","text": "Server"},{"url": "https://docs.mongodb.com/ecosystem/drivers/","text": "Drivers"},{"url": "https://docs.mongodb.com/cloud/","text": "Cloud","active": true},{"url": "https://docs.mongodb.com/tools/","text": "Tools"},{"url": "https://docs.mongodb.com/guides/","text": "Guides"}]}'></div>
+   <script>
+      window.googleSearchCx = "017213726194841070573:nheyyu5ty9c"
+      window.googleSearchPlaceholder = "Search Stitch Docs"
+      window.googleSearchResultsUrl = "http://docs.mongodb.com/stitch/search/"
+   </script>
+    <script src="https://docs.mongodb.com/manual/_static/navbar.min.js"></script>
+  
+
+  <div class="content" >
+
+   <div id="left-column">
+         <aside id="sidebar" class="sidebar">
+             
+  <div class="sphinxsidebar" id="sphinxsidebar">
+    <div id="sphinxsidebarwrapper" class="sphinxsidebarwrapper"><a href="javascript:void(0)" class="closeNav" id="closeNav">Close &times;</a>
+
+
+<h3>
+  <a class="index-link" href="#">MongoDB Europe</a>
+</h3>
+
+<ul><li class="toctree-l1"><a class="reference internal" href="getting-started/">Getting Started</a><ul><li class="toctree-l2"><a class="reference internal" href="getting-started/configure-rules-based-access-to-mongodb/">Query Anywhere with Stitch</a></li><li class="toctree-l2"><a class="reference internal" href="getting-started/integrate-authentication-providers/">Integrate Authentication Providers</a></li><li class="toctree-l2"><a class="reference internal" href="getting-started/integrate-third-party-services/">Integrate Third-Party Services</a></li><li class="toctree-l2"><a class="reference internal" href="getting-started/create-server-side-functions-and-webhooks/">Create Server-side Functions &amp; Webhooks</a></li><li class="toctree-l2"><a class="reference internal" href="procedures/create-stitch-app/">Create a Stitch App</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="tutorials/">Tutorials</a><ul><li class="toctree-l2"><a class="reference internal" href="tutorials/build-blog/">Basic Blog</a></li><li class="toctree-l2"><a class="reference internal" href="tutorials/dashboard/">Dashboard</a></li><li class="toctree-l2"><a class="reference internal" href="tutorials/todo-web/">Building a Web-based To-Do App</a><ul><li class="toctree-l3"><a class="reference internal" href="tutorials/todo-twilio-web/">Integrate the ToDo App with Twilio</a></li></ul></li><li class="toctree-l2"><a class="reference internal" href="tutorials/todo-android/">ToDo (Android App)</a></li><li class="toctree-l2"><a class="reference internal" href="tutorials/todo-ios/">ToDo (iOS App)</a></li><li class="toctree-l2"><a class="reference internal" href="tutorials/temperature-tracker/">Temperature Tracker (IoT Integration)</a></li><li class="toctree-l2"><a class="reference internal" href="tutorials/push-notifications/">Push Notifications (Android App)</a></li><li class="toctree-l2"><a class="reference external" href="https://github.com/mongodb/stitch-examples">Examples on GitHub</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="users/">Users</a><ul><li class="toctree-l2"><a class="reference internal" href="authentication/">Authentication Providers</a><ul><li class="toctree-l3"><a class="reference internal" href="authentication/overview/">Overview</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/anonymous/">Anonymous Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/userpass/">Email/Password Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/api-key/">API Key Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/facebook/">Facebook Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/google/">Google Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/custom/">Custom Authentication</a></li><li class="toctree-l3"><a class="reference internal" href="authentication/linking/">Linking User Accounts</a></li></ul></li><li class="toctree-l2"><a class="reference internal" href="users/find/">Finding a User</a></li><li class="toctree-l2"><a class="reference internal" href="users/user-activity/">Viewing User Data</a></li><li class="toctree-l2"><a class="reference internal" href="users/managing-users/">Managing User Accounts</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="mongodb/atlas/">MongoDB Atlas</a><ul><li class="toctree-l2"><a class="reference internal" href="mongodb/atlas-overview/">MongoDB Atlas Overview</a></li><li class="toctree-l2"><a class="reference internal" href="procedures/integrate-mongo/">Add MongoDB to Your Stitch App</a></li><li class="toctree-l2"><a class="reference internal" href="wire-protocol/">Connect Over the Wire Protocol</a></li><li class="toctree-l2"><a class="reference internal" href="mongodb/mongodb-rules/">MongoDB Rules</a><ul><li class="toctree-l3"><a class="reference internal" href="procedures/manage-rules/">Managing MongoDB Rules</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/rules/mongodb-roles/">MongoDB Roles and Permissions</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/rules/mongodb-advanced/">Advanced Mode for Rules</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/rules/mongodb-validation/">MongoDB Schema Validation</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/rules/mongodb-filters/">MongoDB Filters</a></li></ul></li><li class="toctree-l2"><a class="reference internal" href="mongodb/mongodb-actions/">MongoDB Actions</a><ul><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/mongoDBService.db/">mongoDBService.db()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/database.collection/">database.collection()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.find/">collection.find()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.findOne/">collection.findOne()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.count/">collection.count()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.insertOne/">collection.insertOne()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.insertMany/">collection.insertMany()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.updateOne/">collection.updateOne()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.updateMany/">collection.updateMany()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.deleteOne/">collection.deleteOne()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.deleteMany/">collection.deleteMany()</a></li><li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.aggregate/">collection.aggregate()</a></li></ul></li><li class="toctree-l2"><a class="reference internal" href="connection-strings/">Connection Strings</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="mongodb/mobile/">MongoDB Mobile (Beta)</a><ul><li class="toctree-l2"><a class="reference internal" href="mongodb/mobile/mobile-overview/">MongoDB Mobile Overview</a></li><li class="toctree-l2"><a class="reference internal" href="mongodb/mobile/build-mobile/">Build a MongoDB Mobile App</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="services/">Services</a><ul><li class="toctree-l2"><a class="reference internal" href="reference/service-actions/">Service Actions</a></li><li class="toctree-l2"><a class="reference internal" href="reference/service-rules/">Service Rules</a></li><li class="toctree-l2"><a class="reference internal" href="reference/service-webhooks/">Service Webhooks</a></li><li class="toctree-l2"><a class="reference internal" href="reference/partner-services/">Partner Services</a><ul><li class="toctree-l3"><a class="reference internal" href="reference/partner-services/amazon-service/">AWS Service</a></li><li class="toctree-l3"><a class="reference internal" href="reference/partner-services/github/">GitHub Service</a></li><li class="toctree-l3"><a class="reference internal" href="reference/partner-services/http/">HTTP Service</a><ul><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.get/">httpService.get()</a></li><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.post/">httpService.post()</a></li><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.delete/">httpService.delete()</a></li><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.put/">httpService.put()</a></li><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.patch/">httpService.patch()</a></li><li class="toctree-l4"><a class="reference internal" href="reference/functions/http-actions/httpService.head/">httpService.head()</a></li></ul></li><li class="toctree-l3"><a class="reference internal" href="reference/partner-services/push-notifications/">Push Notifications (GCM)</a></li><li class="toctree-l3"><a class="reference internal" href="reference/partner-services/twilio/">Twilio Service</a><ul><li class="toctree-l4"><a class="reference internal" href="reference/functions/twilio-actions/twilioService.send/">twilioService.send()</a></li></ul></li><li class="toctree-l3"><a class="reference internal" href="reference/deprecated-services/deprecated-services/">Deprecated Services</a><ul><li class="toctree-l4"><a class="reference internal" href="reference/deprecated-services/amazon-s3/">Amazon S3 Service</a><ul><li class="toctree-l5"><a class="reference internal" href="reference/functions/s3-actions/s3Service.put/">s3Service.put()</a></li><li class="toctree-l5"><a class="reference internal" href="reference/functions/s3-actions/s3Service.signPolicy/">s3Service.signPolicy()</a></li></ul></li><li class="toctree-l4"><a class="reference internal" href="reference/deprecated-services/amazon-ses/">Amazon SES Service</a><ul><li class="toctree-l5"><a class="reference internal" href="reference/functions/ses-actions/sesService.send/">sesService.send()</a></li></ul></li></ul></li></ul></li><li class="toctree-l2"><a class="reference internal" href="reference/expansions/">Expansions</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="functions/">Functions</a><ul><li class="toctree-l2"><a class="reference internal" href="functions/define-a-function/">Define a Function</a></li><li class="toctree-l2"><a class="reference internal" href="functions/call-a-function/">Call a Function</a></li><li class="toctree-l2"><a class="reference internal" href="functions/access-function-context/">Access Function Context</a></li><li class="toctree-l2"><a class="reference internal" href="functions/context/">Function Context</a></li><li class="toctree-l2"><a class="reference internal" href="functions/utilities/">Utility Packages</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="triggers/">Triggers</a><ul><li class="toctree-l2"><a class="reference internal" href="triggers/overview/">Overview</a></li><li class="toctree-l2"><a class="reference internal" href="triggers/database-triggers/">Database Triggers</a></li><li class="toctree-l2"><a class="reference internal" href="triggers/authentication-triggers/">Authentication Triggers</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="reference/values/">Values</a></li><li class="toctree-l1"><a class="reference internal" href="client-sdks/">Client SDKs</a><ul><li class="toctree-l2"><a class="reference internal" href="procedures/init-stitchclient/">Initialize the StitchAppClient</a></li><li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js/docs/4/index.html">JavaScript Browser SDK</a></li><li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js-server/docs/4/index.html">JavaScript Server SDK</a></li><li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js-react-native/docs/4/index.html">React Native SDK</a></li><li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/java/docs/4/overview-summary.html">Android SDK</a></li><li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/swift/docs/4/index.html">iOS SDK</a></li><li class="toctree-l2"><a class="reference external" href="https://github.com/electricimp/MongoDBStitch">Electric Imp Library (IoT)</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="import-export/">Import/Export</a><ul><li class="toctree-l2"><a class="reference internal" href="import-export/overview/">Overview</a></li><li class="toctree-l2"><a class="reference internal" href="import-export/create-stitch-app/">Create a New Stitch Application</a></li><li class="toctree-l2"><a class="reference internal" href="import-export/update-stitch-app/">Update an Existing Stitch Application</a></li><li class="toctree-l2"><a class="reference internal" href="import-export/export-stitch-app/">Export an Existing Stitch Application</a></li><li class="toctree-l2"><a class="reference internal" href="import-export/stitch-cli-reference/"><code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code></a></li><li class="toctree-l2"><a class="reference internal" href="import-export/application-schema/">Application File Schema</a></li></ul></li><li class="toctree-l1"><a class="reference internal" href="troubleshooting/">Troubleshooting</a></li><li class="toctree-l1"><a class="reference internal" href="stitch-admin/">Stitch Administration</a><ul><li class="toctree-l2"><a class="reference internal" href="release-notes/">MongoDB Stitch Release Notes</a></li><li class="toctree-l2"><a class="reference internal" href="admin/users-and-groups/">MongoDB Cloud Users</a></li><li class="toctree-l2"><a class="reference internal" href="admin/billing/">Billing</a></li><li class="toctree-l2"><a class="reference internal" href="admin/api/admin-v3/">Stitch Administration API</a></li></ul></li></ul>
+    </div>
+  </div>
+           
+         </aside>
+
+   </div>
+
+    <div id="main-column" class="main-column">
+
+    <span id="showNav" class="showNav">Navigation</span>
+
+      
+        <div class="document">
+            <div class="documentwrapper"><div class="bodywrapper">
+              <div class="body" data-pagename="index">
+                 
+                
+   <div class="bc">
+     
+      
+    
+  </div>
+                
+                  <div class="section" id="stitch">
+<h1>Bienvenue à MongoDB Paris .local !<a class="headerlink" href="#stitch" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper hidden compound" id="mastertoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/configure-rules-based-access-to-mongodb/">Query Anywhere with Stitch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/configure-rules-based-access-to-mongodb/#query-mongodb">Query MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/configure-rules-based-access-to-mongodb/#protect-data-with-rules">Protect Data with Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/configure-rules-based-access-to-mongodb/#what-else-can-i-do-with-stitch">What Else Can I Do With Stitch?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/integrate-authentication-providers/">Integrate Authentication Providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/integrate-authentication-providers/#email-password-authentication">Email / Password Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/integrate-authentication-providers/#what-else-can-i-do-with-stitch">What Else Can I Do With Stitch?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/integrate-third-party-services/">Integrate Third-Party Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/integrate-third-party-services/#call-a-service-from-the-client">Call a Service from the Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/integrate-third-party-services/#call-a-service-from-a-server-function">Call a Service from a Server Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/integrate-third-party-services/#what-else-can-i-do-with-stitch">What Else Can I Do With Stitch?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/create-server-side-functions-and-webhooks/">Create Server-side Functions &amp; Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/create-server-side-functions-and-webhooks/#respond-to-a-webhook">Respond to a Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/create-server-side-functions-and-webhooks/#what-else-can-i-do-with-stitch">What Else Can I Do With Stitch?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="procedures/create-stitch-app/">Create a Stitch App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="procedures/create-stitch-app/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedures/create-stitch-app/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedures/create-stitch-app/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="procedures/create-stitch-app/#a-log-on-to-atlas">A. Log on to Atlas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="procedures/create-stitch-app/#b-create-an-atlas-cluster">B. Create an Atlas Cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="procedures/create-stitch-app/#c-add-a-stitch-app">C. Add a Stitch App</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/build-blog/">Basic Blog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/build-blog/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#what-we-ll-build">What We’ll Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/build-blog/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#a-create-the-blog-post-layout">A. Create the Blog Post Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#b-create-and-configure-a-mongodb-stitch-application">B. Create and Configure a MongoDB Stitch Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#create-a-stitch-short-application">Create a Stitch Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#turn-on-anonymous-authentication">Turn on Anonymous Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#configure-the-blog-comments-mongodb-collection">Configure the <code class="docutils literal notranslate"><span class="pre">blog.comments</span></code> MongoDB Collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#c-add-a-commenting-system-to-the-blog-post">C. Add a Commenting System to the Blog Post</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#include-the-stitch-javascript-sdk">Include the MongoDB Stitch JavaScript SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#initialize-stitch-clients">Initialize Stitch Clients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#query-and-display-comments-on-page-load">Query and Display Comments on Page Load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#log-in-and-display-comments-on-load">Log In and Display Comments On Load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/build-blog/#add-a-form-for-submitting-comments">Add a Form for Submitting Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/build-blog/#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/build-blog/#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/dashboard/">Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/dashboard/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/dashboard/#what-we-ll-build">What We’ll Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/dashboard/#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/dashboard/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/dashboard/#a-import-a-new-stitch-application">A. Import a New Stitch Application</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#navigate-to-the-pre-configured-application-directory">Navigate to the Pre-Configured Application Directory</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#authenticate-a-mongodb-atlas-user">Authenticate a MongoDB Atlas User</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#optional-update-mongodb-atlas-cluster-name">Optional: Update MongoDB Atlas Cluster Name</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#import-the-application-directory">Import the Application Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/dashboard/#b-set-up-the-dashboard-client">B. Set Up the Dashboard Client</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#create-an-email-password-user">Create an Email/Password User</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#configure-the-addorder-webhook-to-run-as-the-new-user">Configure the <code class="docutils literal notranslate"><span class="pre">addOrder</span></code> Webhook to Run as the New User</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#configure-the-data-generation-script">Configure the Data Generation Script</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#connect-the-dashboard-client-to-your-stitch-applications">Connect the Dashboard Client to your Stitch Applications</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#run-the-data-generation-script">Run the Data Generation Script</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/dashboard/#launch-the-dashboard">Launch the Dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/dashboard/#c-log-in-to-the-dashboard">C. Log In to the Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/todo-web/">Building a Web-based To-Do App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-web/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-web/#what-we-ll-build">What We’ll Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-web/#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-web/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-web/#a-create-or-import-a-new-stitch-short-app">A. Create or Import a New Stitch App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-web/#b-set-up-your-web-application">B. Set up Your Web Application</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-twilio-web/">Integrate the ToDo App with Twilio</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="tutorials/todo-twilio-web/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l6"><a class="reference internal" href="tutorials/todo-twilio-web/#procedure">Procedure</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#a-go-to-your-todo-app-in-stitch">A. Go to your <span class="guilabel">ToDo</span> app in MongoDB Stitch</a></li>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#b-configure-the-stitch-short-mongodb-service-for-twilio-integration">B. Configure the Stitch MongoDB Service for Twilio Integration</a></li>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#c-configure-the-stitch-short-twilio-service">C. Configure the Stitch Twilio Service</a></li>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#d-create-a-twilio-programmable-sms-service">D. Create a Twilio Programmable SMS Service</a></li>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#e-add-your-twilio-phone-number-as-a-stitch-short-value">E. Add your Twilio Phone Number as a Stitch value</a></li>
+<li class="toctree-l7"><a class="reference internal" href="tutorials/todo-twilio-web/#f-set-up-and-run-the-todo-application">F. Set Up and Run the ToDo Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/todo-android/">ToDo (Android App)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-android/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-android/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#a-create-a-stitch-app">A. Create a MongoDB Stitch App</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-android/#log-into-atlas">Log into Atlas.</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-android/#create-an-atlas-cluster">Create an Atlas cluster.</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-android/#add-a-stitch-application">Add a MongoDB Stitch application.</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#b-define-rules">B. Define Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#configure-mongodb">Configure MongoDB.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#review-rules-for-documents-in-todo-items">Review Rules for Documents in <code class="docutils literal notranslate"><span class="pre">todo.items</span></code>.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#add-a-filter-for-todo-items">Add a Filter for <code class="docutils literal notranslate"><span class="pre">todo.items</span></code>.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#c-set-up-authentication">C. Set Up Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#add-authentication-information-in-stitch">Add authentication information in MongoDB Stitch.</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-android/#id1">Facebook</a></li>
+<li class="toctree-l5"><a class="reference internal" href="tutorials/todo-android/#id2">Google</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#d-download-the-application-source-code">D. Download the Application Source Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#e-configure-and-run-the-application">E. Configure and Run the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#open-the-project-in-android-studio">Open the project in Android Studio.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#update-project-with-your-stitch-app-id">Update project with your MongoDB Stitch App ID.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#update-project-with-your-facebook-app-id">Update project with your Facebook App ID.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#review-stitch-connection-logic-in-application-source-file">Review MongoDB Stitch connection logic in application source file.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-android/#run-the-todo-app">Run the <code class="docutils literal notranslate"><span class="pre">todo</span></code> app.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/todo-ios/">ToDo (iOS App)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-ios/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/todo-ios/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#a-create-a-stitch-short-app">A. Create a Stitch App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#b-define-stitch-short-rules">B. Define Stitch Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#c-enable-anonymous-auth">C. Enable Anonymous Auth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#d-set-up-facebook-authentication">D. Set Up Facebook Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#e-set-up-google-authentication">E. Set Up Google Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#f-download-the-application-source-code">F. Download the Application Source Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/todo-ios/#g-configure-and-run-the-application">G. Configure and Run the Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/temperature-tracker/">Temperature Tracker (IoT Integration)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/temperature-tracker/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#what-we-ll-build">What We’ll Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/temperature-tracker/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#a-create-and-configure-a-mongodb-stitch-app">A. Create and Configure a MongoDB Stitch App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-a-stitch-short-application">Create a Stitch Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-an-api-authentication-key">Create an API Authentication Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#configure-a-mongodb-collection">Configure a MongoDB Collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-a-function-to-store-device-data">Create a Function to Store Device Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#b-set-up-the-electric-imp-device">B. Set Up the Electric Imp Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#set-up-the-electric-imp-device">Set Up the Electric Imp Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#add-and-deploy-custom-code">Add and Deploy Custom Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#c-record-outdoor-temperature-data">C. Record Outdoor Temperature Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#get-a-dark-sky-api-key">Get a Dark Sky API Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#save-the-api-key-in-stitch">Save the API Key in Stitch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#specify-the-device-data-coordinates">Specify the Device Data Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-a-dark-sky-http-service">Create a Dark Sky HTTP Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#configure-the-dark-sky-http-service">Configure the Dark Sky HTTP Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#update-stitch-function-code">Update Stitch Function Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#d-add-text-message-querying">D. Add Text Message Querying</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#get-your-twilio-credentials">Get Your Twilio Credentials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-a-twilio-service">Create a Twilio Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#create-a-twilio-webhook">Create a Twilio Webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#configure-twilio-to-call-the-webhook">Configure Twilio to Call the Webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/temperature-tracker/#request-the-temperature-with-sms">Request the Temperature with SMS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/push-notifications/">Push Notifications (Android App)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/push-notifications/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/push-notifications/#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/push-notifications/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/push-notifications/#a-create-and-configure-a-firebase-project">A. Create and Configure a Firebase Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/push-notifications/#b-set-up-the-example-android-app">B. Set up the Example Android App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/push-notifications/#c-create-and-configure-a-mongodb-stitch-application">C. Create and Configure a MongoDB Stitch Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/push-notifications/#d-create-push-notifications-in-stitch">D. Create Push Notifications in MongoDB Stitch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/push-notifications/#about-the-code">About the Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/mongodb/stitch-examples">Examples on GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="users/">Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users/#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/#managing-users">Managing Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/#user-sessions">User Sessions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="authentication/">Authentication Providers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="authentication/overview/">Overview</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/overview/#authentication-providers">Authentication Providers</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/anonymous/">Anonymous Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/anonymous/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/anonymous/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/anonymous/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/anonymous/#authenticate-a-user">Authenticate a User</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/userpass/">Email/Password Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/userpass/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/userpass/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/userpass/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/userpass/#authenticate-a-user">Authenticate a User</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/userpass/#create-a-new-user-account">Create a New User Account</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/userpass/#reset-a-user-s-password">Reset a User’s Password</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/api-key/">API Key Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/api-key/#overview">Overview</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#server-keys">Server Keys</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#user-keys">User Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/api-key/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/api-key/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#authenticate-with-an-api-key">Authenticate with an API Key</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#create-a-user-key">Create a User Key</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#create-a-server-key">Create a Server Key</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#look-up-an-existing-user-key">Look up an Existing User Key</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#enable-or-disable-an-api-key">Enable or Disable an API Key</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/api-key/#delete-an-api-key">Delete an API Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/facebook/">Facebook Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/facebook/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/facebook/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/facebook/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#set-up-a-facebook-app">Set Up a Facebook App</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#create-a-facebook-app">Create a Facebook App</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#enable-facebook-login">Enable Facebook Login</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#add-stitch-as-a-valid-oauth-redirect-uri">Add Stitch as a Valid OAuth Redirect URI</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#configure-the-facebook-authentication-provider">Configure the Facebook Authentication Provider</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/facebook/#authenticate-a-user">Authenticate a User</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/google/">Google Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/google/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/google/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/google/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/google/#set-up-a-google-cloud-platform-project">Set Up a Google Cloud Platform Project</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/google/#create-a-google-cloud-platform-project">Create a Google Cloud Platform Project</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/google/#generate-oauth-client-credentials">Generate OAuth Client Credentials</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/google/#configure-the-google-authentication-provider">Configure the Google Authentication Provider</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/google/#authenticate-a-user">Authenticate a User</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/custom/">Custom Authentication</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="authentication/custom/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/custom/#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="authentication/custom/#usage">Usage</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="authentication/custom/#authenticate-a-user">Authenticate a User</a></li>
+<li class="toctree-l6"><a class="reference internal" href="authentication/custom/#json-web-tokens">JSON Web Tokens</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="authentication/custom/#header">Header</a></li>
+<li class="toctree-l7"><a class="reference internal" href="authentication/custom/#payload">Payload</a></li>
+<li class="toctree-l7"><a class="reference internal" href="authentication/custom/#signature">Signature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="authentication/linking/">Linking User Accounts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="users/find/">Finding a User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/user-activity/">Viewing User Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="users/user-activity/#viewing-a-user-s-devices">Viewing a User’s Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/user-activity/#viewing-a-user-s-provider-data">Viewing a User’s Provider Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/user-activity/#viewing-a-user-s-activity-log">Viewing a User’s Activity Log</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="users/managing-users/">Managing User Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="users/managing-users/#creating-an-email-password-user">Creating an Email/Password User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/managing-users/#deleting-or-disabling-a-user">Deleting or Disabling a User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/managing-users/#revoking-user-sessions">Revoking User Sessions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mongodb/atlas/">MongoDB Atlas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mongodb/atlas-overview/">MongoDB Atlas Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/atlas-overview/#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/atlas-overview/#set-up-the-mongodb-service">Set Up the MongoDB Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#link-a-mongodb-atlas-cluster">Link a MongoDB Atlas Cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#configure-collection-rules">Configure Collection Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/atlas-overview/#query-mongodb-anywhere">Query MongoDB Anywhere</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#query-mongodb-from-a-stitch-function">Query MongoDB from a Stitch Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#query-mongodb-from-a-client-sdk">Query MongoDB from a Client SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/atlas-overview/#considerations">Considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#system-generated-cluster-users">System-Generated Cluster Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/atlas-overview/#accessing-application-data-with-another-tool">Accessing Application Data with Another Tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="procedures/integrate-mongo/">Add MongoDB to Your Stitch App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="procedures/integrate-mongo/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedures/integrate-mongo/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedures/integrate-mongo/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="procedures/integrate-mongo/#a-add-a-mongodb-instance">A. Add a MongoDB Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="procedures/integrate-mongo/#b-create-a-collection-s-rules">B. Create a Collection’s Rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wire-protocol/">Connect Over the Wire Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wire-protocol/#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#compatible-clients">Compatible Clients</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wire-protocol/#enable-wire-protocol-connections">Enable Wire Protocol Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wire-protocol/#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#connect-to-stitch-with-a-connection-string">Connect to Stitch with a Connection String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#perform-crud-operations">Perform CRUD Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#call-a-function">Call a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#call-a-service-function">Call a Service Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#get-the-logged-in-user-s-data">Get the Logged In User’s Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wire-protocol/#reference">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#database-commands">Database Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wire-protocol/#unsupported-functionality">Unsupported Functionality</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="wire-protocol/#command-fields">Command Fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mongodb/mongodb-rules/">MongoDB Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mongodb-rules/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mongodb-rules/#rules-roles-and-permissions">Rules, Roles, and Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mongodb-rules/#filters">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mongodb-rules/#validation">Validation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="procedures/manage-rules/">Managing MongoDB Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="procedures/manage-rules/#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="procedures/manage-rules/#manage-field-specific-role-permissions">Manage Field-Specific Role Permissions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#add-permissions">Add Permissions</a></li>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#delete-permissions">Delete Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="procedures/manage-rules/#manage-roles">Manage Roles</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#add-a-role">Add a Role</a></li>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#delete-a-role">Delete a Role</a></li>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#rearrange-roles">Rearrange Roles</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="procedures/manage-rules/#add-schema-validation">Add Schema Validation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="procedures/manage-rules/#manage-filters">Manage Filters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#create-a-filter">Create a Filter</a></li>
+<li class="toctree-l6"><a class="reference internal" href="procedures/manage-rules/#delete-a-filter">Delete a Filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/rules/mongodb-roles/">MongoDB Roles and Permissions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-roles/#roles">Roles</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-roles/#role-permissions">Role Permissions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-roles/#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/rules/mongodb-advanced/">Advanced Mode for Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-advanced/#rules-json-reference">Rules JSON Reference</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-advanced/#roles">Roles</a></li>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-advanced/#filters">Filters</a></li>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-advanced/#schema">Schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/rules/mongodb-validation/">MongoDB Schema Validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-validation/#adding-a-validation-schema">Adding a Validation Schema</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-validation/#using-the-validate-field">Using the <code class="docutils literal notranslate"><span class="pre">&lt;validate&gt;</span></code> Field</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-validation/#validation-rule-example">Validation Rule Example</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-validation/#validation-rules-and-write-rules">Validation Rules and Write Rules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-validation/#delete-operations">Delete Operations</a></li>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-validation/#rule-cascade">Rule Cascade</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/rules/mongodb-filters/">MongoDB Filters</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-filters/#filter-syntax">Filter Syntax</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-filters/#apply-when-expression-syntax"><code class="docutils literal notranslate"><span class="pre">apply_when</span></code> Expression Syntax</a></li>
+<li class="toctree-l6"><a class="reference internal" href="mongodb/rules/mongodb-filters/#query-expression-syntax"><code class="docutils literal notranslate"><span class="pre">query</span></code> Expression Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-filters/#filter-behavior">Filter Behavior</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/rules/mongodb-filters/#filter-example">Filter Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mongodb/mongodb-actions/">MongoDB Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/mongoDBService.db/">mongoDBService.db()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/mongoDBService.db/#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/database.collection/">database.collection()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/database.collection/#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.find/">collection.find()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.find/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.find/#behavior">Behavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#cursor-handling">Cursor Handling</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#working-with-bson">Working with BSON</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.find/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#finding-all-documents-in-a-collection">Finding All Documents in a Collection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#finding-documents-matching-user-input">Finding Documents Matching User Input</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#finding-documents-matching-a-regular-expression">Finding Documents Matching a Regular Expression</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.find/#sort-and-limit-results">Sort and Limit Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.findOne/">collection.findOne()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.findOne/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.findOne/#behavior">Behavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.findOne/#working-with-bson">Working with BSON</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.findOne/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.findOne/#finding-the-first-document-in-a-collection">Finding the First Document in a Collection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.findOne/#finding-a-document-matching-user-input">Finding a Document Matching User Input</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.findOne/#finding-a-document-matching-a-regular-expression">Finding a Document Matching a Regular Expression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.count/">collection.count()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.count/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.count/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.count/#counting-all-documents-in-a-collection">Counting All Documents in a Collection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.count/#counting-documents-matching-a-regular-expression">Counting Documents Matching a Regular Expression</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.count/#counting-the-number-of-documents-matching-user-input">Counting the Number of Documents Matching User Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.insertOne/">collection.insertOne()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.insertOne/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.insertOne/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.insertOne/#inserting-a-document">Inserting a Document</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.insertOne/#handling-write-errors">Handling Write Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.insertMany/">collection.insertMany()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.insertMany/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.insertMany/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.insertMany/#inserting-multiple-documents">Inserting Multiple Documents</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.insertMany/#handling-write-errors">Handling Write Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.updateOne/">collection.updateOne()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.updateOne/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.updateOne/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.updateOne/#updating-a-document">Updating a Document</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.updateMany/">collection.updateMany()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.updateMany/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.updateMany/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.updateMany/#updating-multiple-documents">Updating Multiple Documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.deleteOne/">collection.deleteOne()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.deleteOne/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.deleteOne/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.deleteOne/#deleting-a-document">Deleting a Document</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.deleteMany/">collection.deleteMany()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.deleteMany/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.deleteMany/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.deleteMany/#deleting-multiple-documents">Deleting Multiple Documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/actions/collection.aggregate/">collection.aggregate()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.aggregate/#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.aggregate/#behavior">Behavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.aggregate/#unsupported-aggregation-stages">Unsupported Aggregation Stages</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.aggregate/#cursor-handling">Cursor Handling</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.aggregate/#working-with-bson">Working with BSON</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/actions/collection.aggregate/#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mongodb/actions/collection.aggregate/#executing-a-pipeline">Executing a Pipeline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connection-strings/">Connection Strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connection-strings/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection-strings/#connection-string-components">Connection String Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connection-strings/#credentials">Credentials</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="connection-strings/#parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mongodb/mobile/">MongoDB Mobile (Beta)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mongodb/mobile/mobile-overview/">MongoDB Mobile Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/mobile-overview/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/mobile-overview/#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/mobile-overview/#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/mobile-overview/#comparing-mongodb-and-mongodb-mobile-beta">Comparing MongoDB and MongoDB Mobile (Beta)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/mobile-overview/#upcoming-mobile-optimizations">Upcoming Mobile Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mongodb/mobile/build-mobile/">Build a MongoDB Mobile App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/build-mobile/#starter-apps">Starter Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mongodb/mobile/build-mobile/#creating-a-new-mongodb-mobile-beta-app">Creating a New MongoDB Mobile (Beta) App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/mobile/build-mobile/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/mobile/build-mobile/#getting-started">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/mobile/build-mobile/#initializing-mongodb-mobile">Initializing MongoDB Mobile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mongodb/mobile/build-mobile/#connecting-with-stitch-and-atlas">Connecting with Stitch and Atlas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services/">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/service-actions/">Service Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-actions/#executing-service-actions-from-functions">Executing Service Actions from Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-actions/#executing-service-actions-from-sdks">Executing Service Actions from SDKs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/service-rules/">Service Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-rules/#specifying-a-rule">Specifying a Rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-rules/#rule-expression-syntax">Rule Expression Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-rules/#using-multiple-rules">Using Multiple Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/service-webhooks/">Service Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-webhooks/#creating-a-webhook">Creating a Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-webhooks/#using-a-webhook">Using a Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/service-webhooks/#parsing-a-webhook-payload">Parsing a Webhook Payload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/partner-services/">Partner Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/partner-services/amazon-service/">AWS Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#add-an-aws-service">Add an AWS Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#service-actions">Service Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#aws-service-rules">AWS Service Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/amazon-service/#create-a-new-service-rule">Create a new Service Rule</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#rule-conditions">Rule Conditions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/amazon-service/#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#usage">Usage</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/amazon-service/#calling-an-aws-service-from-a-stitch-function">Calling an AWS Service from a Stitch Function</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/amazon-service/#s3-service">S3 Service</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/amazon-service/#kinesis-service">Kinesis Service</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/amazon-service/#lambda-service">Lambda Service</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/amazon-service/#ses-service">SES Service</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/amazon-service/#calling-an-aws-service-from-the-sdks">Calling an AWS Service from the SDKs</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/amazon-service/#supported-aws-services">Supported AWS Services</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/partner-services/github/">GitHub Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/github/#add-a-github-service">Add a GitHub Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/github/#incoming-webhooks">Incoming Webhooks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/github/#additional-settings">Additional Settings</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/github/#adding-your-webhook-to-a-github-repository">Adding your Webhook to a GitHub Repository</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/github/#example-webhook-function">Example Webhook Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/partner-services/http/">HTTP Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/http/#add-an-http-service">Add an HTTP Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/http/#service-actions">Service Actions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.get/">httpService.get()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.get/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.get/#alternative-url-arguments">Alternative URL Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.get/#examples">Examples</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.get/#retrieving-a-web-page">Retrieving a Web Page</a></li>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.get/#retrieving-json">Retrieving JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.post/">httpService.post()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.post/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.post/#alternative-url-arguments">Alternative URL Arguments</a></li>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.post/#include-multipart-form-data-content-in-a-request">Include <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code> Content in a Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.delete/">httpService.delete()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.delete/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.delete/#alternative-url-arguments">Alternative URL Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.put/">httpService.put()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.put/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.put/#alternative-url-arguments">Alternative URL Arguments</a></li>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.put/#include-multipart-form-data-content-in-a-request">Include <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code> Content in a Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.patch/">httpService.patch()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.patch/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.patch/#alternative-url-arguments">Alternative URL Arguments</a></li>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.patch/#include-multipart-form-data-content-in-a-request">Include <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code> Content in a Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/http-actions/httpService.head/">httpService.head()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/http-actions/httpService.head/#definition">Definition</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/http-actions/httpService.head/#alternative-url-arguments">Alternative URL Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/http/#service-rules">Service Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/http/#permitted-arguments">Permitted Arguments</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#url"><code class="docutils literal notranslate"><span class="pre">url</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#headers"><code class="docutils literal notranslate"><span class="pre">headers</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#body"><code class="docutils literal notranslate"><span class="pre">body</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#followredirects"><code class="docutils literal notranslate"><span class="pre">followRedirects</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#cookies"><code class="docutils literal notranslate"><span class="pre">cookies</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#authurl"><code class="docutils literal notranslate"><span class="pre">authUrl</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/http/#examples">Examples</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-rule-with-the-url-argument">Example Rule with the <code class="docutils literal notranslate"><span class="pre">url</span></code> Argument</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-rule-with-the-headers-argument">Example Rule with the <code class="docutils literal notranslate"><span class="pre">headers</span></code> Argument</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-rule-with-the-body-argument">Example Rule with the <code class="docutils literal notranslate"><span class="pre">body</span></code> Argument</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-rule-with-the-followredirects-argument">Example Rule with the <code class="docutils literal notranslate"><span class="pre">followRedirects</span></code> Argument</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-rule-with-the-cookies-argument">Example Rule with the <code class="docutils literal notranslate"><span class="pre">cookies</span></code> Argument</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/http/#incoming-webhooks">Incoming Webhooks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/http/#modify-a-webhook-response">Modify a Webhook Response</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/http/#validate-a-webhook-request">Validate a Webhook Request</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-signing-message-payload">Example: Signing Message Payload</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/partner-services/http/#example-secret-query-parameter">Example: Secret Query Parameter</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/http/#example-webhook-function">Example Webhook Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/partner-services/push-notifications/">Push Notifications (GCM)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/push-notifications/#managing-stitch-push-notifications">Managing Stitch Push Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/push-notifications/#notification-rules">Notification Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/push-notifications/#notification-fields">Notification Fields</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/push-notifications/#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/push-notifications/#client-application-integration">Client Application Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/partner-services/twilio/">Twilio Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/twilio/#add-a-twilio-service">Add a Twilio Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/twilio/#service-actions">Service Actions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/functions/twilio-actions/twilioService.send/">twilioService.send()</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/twilio-actions/twilioService.send/#definition">Definition</a></li>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/twilio-actions/twilioService.send/#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/twilio/#service-rules">Service Rules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/twilio/#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/partner-services/twilio/#incoming-webhooks">Incoming Webhooks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/twilio/#adding-your-webhook-to-a-twilio-project">Adding your Webhook to a Twilio Project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/partner-services/twilio/#example-webhook-function">Example Webhook Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reference/deprecated-services/deprecated-services/">Deprecated Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/deprecated-services/amazon-s3/">Amazon S3 Service</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-s3/#add-an-amazon-s3-service">Add an Amazon S3 Service</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-s3/#service-actions">Service Actions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/s3-actions/s3Service.put/">s3Service.put()</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/s3-actions/s3Service.put/#definition">Definition</a></li>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/s3-actions/s3Service.put/#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/s3-actions/s3Service.signPolicy/">s3Service.signPolicy()</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/s3-actions/s3Service.signPolicy/#definition">Definition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-s3/#service-rules">Service Rules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/deprecated-services/amazon-s3/#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="reference/deprecated-services/amazon-ses/">Amazon SES Service</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#set-up-ses-in-aws">Set up SES in AWS</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#add-an-amazon-ses-service">Add an Amazon SES Service</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#service-actions">Service Actions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/functions/ses-actions/sesService.send/">sesService.send()</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="reference/functions/ses-actions/sesService.send/#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#service-rules">Service Rules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/deprecated-services/amazon-ses/#ses-rules-example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/expansions/">Expansions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/expansions/#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/expansions/#mongodb-specific">MongoDB-Specific</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/expansions/#the-user-object">The <code class="docutils literal notranslate"><span class="pre">%%user</span></code> Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/expansions/#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reference/expansions/#id1">The <code class="docutils literal notranslate"><span class="pre">%%user</span></code> Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/expansions/#mongodb-validation-rule">MongoDB Validation Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/expansions/#this"><code class="docutils literal notranslate"><span class="pre">%%this</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference/expansions/#calling-a-function">Calling a Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions/">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="functions/#use-cases">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="functions/#behavior">Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="functions/#constraints">Constraints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="functions/#usage-guides">Usage Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/#reference-documentation">Reference Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="triggers/">Triggers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="triggers/overview/">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triggers/overview/#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers/overview/#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="triggers/overview/#database-trigger">Database Trigger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers/overview/#authentication-trigger">Authentication Trigger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triggers/database-triggers/">Database Triggers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triggers/database-triggers/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers/database-triggers/#create-a-database-trigger">Create a Database Trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers/database-triggers/#reference">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="triggers/database-triggers/#database-trigger-configuration">Database Trigger Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers/database-triggers/#database-change-events">Database Change Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triggers/authentication-triggers/">Authentication Triggers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triggers/authentication-triggers/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers/authentication-triggers/#create-an-authentication-trigger">Create an Authentication Trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers/authentication-triggers/#reference">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="triggers/authentication-triggers/#authentication-trigger-configuration">Authentication Trigger Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers/authentication-triggers/#authentication-events">Authentication Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/values/">Values</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/values/#define-values">Define Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#go-to-values">Go to <code class="docutils literal notranslate"><span class="pre">Values</span></code>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#click-new-value-and-enter-a-name-for-the-new-value-in-the-new-value-name-box">Click <span class="guilabel">New Value</span> and enter a name for the new value in the <span class="guilabel">New Value Name</span> box.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#enter-a-value-in-the-box-below-new-value-name">Enter a value in the box below <span class="guilabel">New Value Name</span>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#optional-enable-private-mode-to-prevent-stitch-client-applications-from-accessing-the-value">(Optional) Enable <span class="guilabel">Private</span> mode to prevent MongoDB Stitch client applications from accessing the value.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/values/#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#values-in-stitch-short-rules">Values in Stitch Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/values/#values-in-stitch-short-functions">Values in Stitch Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client-sdks/">Client SDKs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="procedures/init-stitchclient/">Initialize the StitchAppClient</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="procedures/init-stitchclient/#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js/docs/4/index.html">JavaScript Browser SDK</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js-server/docs/4/index.html">JavaScript Server SDK</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/js-react-native/docs/4/index.html">React Native SDK</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/java/docs/4/overview-summary.html">Android SDK</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://s3.amazonaws.com/stitch-sdks/swift/docs/4/index.html">iOS SDK</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/electricimp/MongoDBStitch">Electric Imp Library (IoT)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="import-export/">Import/Export</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="import-export/overview/">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/overview/#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/overview/#command-line-interface">Command Line Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/overview/#the-application-directory">The Application Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="import-export/create-stitch-app/">Create a New Stitch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/create-stitch-app/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/create-stitch-app/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/create-stitch-app/#create-an-application-directory">Create an Application Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/create-stitch-app/#optional-initialize-application-entities">Optional: Initialize Application Entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/create-stitch-app/#authenticate-a-mongodb-atlas-user">Authenticate a MongoDB Atlas User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/create-stitch-app/#run-the-import-command">Run the Import Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/create-stitch-app/#verify-application-creation">Verify Application Creation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="import-export/update-stitch-app/">Update an Existing Stitch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/update-stitch-app/#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/update-stitch-app/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#prepare-the-application-directory">Prepare the Application Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#add-or-update-application-entities">Add or Update Application Entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#authenticate-a-mongodb-atlas-user">Authenticate a MongoDB Atlas User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#run-the-import-command">Run the Import Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#review-and-confirm-import-diff">Review and Confirm Import Diff</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/update-stitch-app/#import-strategies">Import Strategies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#merge">Merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/update-stitch-app/#replace">Replace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="import-export/export-stitch-app/">Export an Existing Stitch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/export-stitch-app/#procedure">Procedure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/export-stitch-app/#export-from-the-stitch-ui">Export from the Stitch UI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/export-stitch-app/#export-with-stitch-cli">Export with <code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/export-stitch-app/#authenticate-a-mongodb-atlas-user">Authenticate a MongoDB Atlas User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/export-stitch-app/#run-the-export-command">Run the Export Command</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/export-stitch-app/#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="import-export/stitch-cli-reference/"><code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/stitch-cli-reference/#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#download-the-stitch-cli-binary">Download the <code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code> binary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#add-the-stitch-cli-binary-to-your-system-path">Add the <code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code> binary to your system PATH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#linux-macos-configure-execution-permissions-for-stitch-cli">(Linux / macOS) Configure execution permissions for <code class="docutils literal notranslate"><span class="pre">stitch-cli</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/stitch-cli-reference/#cli-reference">CLI Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#general-options">General Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#import-an-application">Import an Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#export-an-application">Export an Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#authenticate-a-cli-user">Authenticate a CLI User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/stitch-cli-reference/#log-out-the-current-cli-user">Log Out the Current CLI User</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="import-export/application-schema/">Application File Schema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#application-configuration">Application Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#sensitive-information">Sensitive Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#authentication-providers">Authentication Providers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#id1">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#source-code">Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#services">Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#id2">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#incoming-webhooks">Incoming Webhooks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="import-export/application-schema/#id3">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="import-export/application-schema/#id4">Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#service-rules">Service Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#mongodb-collection-rules">MongoDB Collection Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#triggers">Triggers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#id5">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="import-export/application-schema/#values">Values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="import-export/application-schema/#definition">Definition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting/">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting/#client-errors">Client Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting/#administrative-errors">Administrative Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stitch-admin/">Stitch Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/">MongoDB Stitch Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release-notes/#august-14-2018">August 14, 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release-notes/#july-27-2018">July 27, 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release-notes/#july-25-2018">July 25, 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release-notes/#june-21-2018">June 21, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/users-and-groups/">MongoDB Cloud Users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/users-and-groups/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/users-and-groups/#atlas-fullname-roles-and-permissions">MongoDB Atlas Roles and Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/billing/">Billing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/billing/#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/billing/#pricing">Pricing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin/billing/#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="admin/billing/#data-transfer">Data Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/billing/#compute">Compute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="admin/billing/#invoicing-and-payment">Invoicing and Payment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/api/admin-v3/">Stitch Administration API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/api/admin-v3/#api-authentication">API Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#generating-an-atlas-api-key">Generating an Atlas API Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#initial-authentication">Initial Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="admin/api/admin-v3/#project-application-ids">Project &amp; Application IDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#project-id">Project ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#application-id">Application ID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="admin/api/admin-v3/#resources">Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#base-url">Base URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#stitch-short-administrator-apis">Stitch Administrator APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#api-key-apis">API Key APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#application-level-apis">Application-level APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#auth-provider-apis">Auth Provider APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#email-apis">Email APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#functions-apis">Functions APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#logging-apis">Logging APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#notifications-apis">Notifications APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#rules-apis">Rules APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#security-apis">Security APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#services-apis">Services APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#users-apis">Users APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#values-apis">Values APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#incoming-webhook-apis">Incoming Webhook APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin/api/admin-v3/#event-trigger-apis">Event Trigger APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+                
+
+<div class="intro-section">
+<div class="intro-section-paragraph" style="max-width:800px;">
+La documentation de MongoDB offre des parcours d'apprentissage pour les administrateurs, les développeurs, et les analystes. Nous avons
+sélectionné ces pages pour vous aider à démarrer – ou accélérer – votre apprentissage.</div>
+<div class="card_group" style="display:none;">
+
+  <a href="https://docs.mongodb.com/stitch/procedures/create-stitch-app/"
+     class="card card-small"
+  >
+    <div class="card-icon"><img alt="_images/pen-3.svg" src="https://docs.mongodb.com/stitch/_images/pen-3.svg" />  </div>
+  <div class="card-content">Créer un app <em>(en anglais)</em></div>
+</a>
+ <a href="https://docs.mongodb.com/stitch/procedures/init-stitchclient/"
+    class="card card-small"
+ >
+   <div class="card-icon"><img alt="_images/toolbox.svg" src="https://docs.mongodb.com/stitch/_images/toolbox.svg" />  </div>
+  <div class="card-content">Kits de développement logiciel <em>(en anglais)</em></div>
+</a>
+ <a href="https://docs.mongodb.com/stitch/troubleshooting/"
+    class="card card-small"
+ >
+   <div class="card-icon"><img alt="_images/programming-bug-2.svg" src="https://docs.mongodb.com/stitch/_images/programming-bug-2.svg" />  </div>
+  <div class="card-content">Dépannage <em>(en anglais)</em></div>
+</a>
+ <a href="https://docs.mongodb.com/stitch/release-notes/"
+    class="card card-small"
+ >
+   <div class="card-icon"><img alt="_images/file-notes-document.svg" src="https://docs.mongodb.com/stitch/_images/file-notes-document.svg" />    </div>
+    <div class="card-content">Notes de mise à jour <em>(en anglais)</em></div>
+  </a>
+</div> <!-- end card_group --></div>
+<div class="section" id="what-does-stitch-provide">
+<h2>Pour les administrateurs<a class="headerlink" href="#documentation-for-administrators" title="Permalink to this headline">¶</a></h2>
+<div class="card_group">
+
+  <a href="https://docs.mongodb.com/manual/" class="card card-large" id="mongodb-queryanywhere">
+    <div class="card-image"><img alt="_images/configure-rules-based-access-to-mongodb.png" src="https://docs.mongodb.com/stitch/_images/configure-rules-based-access-to-mongodb.png" />
+  </div>
+  <div class="card-content">
+    <div class="card-headline">La documentation</div>
+    <div class="card-subheadline">La documentation officielle pour MongoDB elle-même. <em>(En anglais)</em></div>
+  </div>
+</a>
+<a href="https://docs.mongodb.com/manual/administration/security-checklist/" class="card card-large" id="serverless-functions">
+  <div class="card-image"><img alt="_images/mongodb-mobile.png" src="https://docs.mongodb.com/stitch/_images/mongodb-mobile.png" />
+  </div>
+  <div class="card-content">
+    <div class="card-headline">Check-list de sécurité</div>
+    <div class="card-subheadline">Assurez-vous de sécuriser votre déploiement MongoDB. <em>(En anglais)</em></div>
+  </div>
+</a>
+<a href="https://docs.mongodb.com/manual/administration/monitoring/" class="card card-large" id="event-triggers">
+  <div class="card-image"><img alt="_images/iot-temperature-tracker.png" src="https://docs.mongodb.com/stitch/_images/iot-temperature-tracker.png" />
+    </div>
+    <div class="card-content">
+      <div class="card-headline">Le monitoring</div>
+      <div class="card-subheadline">MongoDB propose des outils et des solutions pour le gestion et le monitoring de votre déploiement MongoDB. <em>(En anglais)</em></div>
+    </div>
+  </a>
+
+</div></div>
+<div class="section" id="stitch-tutorials">
+<h2 style="margin-top:43px;">Pour les développeurs<a class="headerlink" href="#documentation-for-developers" title="Permalink to this headline">¶</a></h2>
+<div class="card_group">
+
+  <a href="https://docs.mongodb.com/guides/" class="card card-large" id="intro-to-mongodb">
+    <div class="card-image"><img alt="_images/blog.png" src="https://docs.mongodb.com/stitch/_images/blog.png" />
+    </div>
+    <div class="card-content">
+      <div class="card-headline">Introduction à MongoDB</div>
+      <div class="card-subheadline">Une série de guides pour vous aider à installer et démarrer MongoDB et faire vos premiers requêtes. <em>(En anglais)</em></div>
+    </div>
+  </a>
+  <a href="https://docs.mongodb.com/guides/server/drivers/" class="card card-large" id="tutorial-iot-temperature-tracker">
+    <div class="card-image"><img alt="_images/create-server-side-functions-and-webhooks.png" src="https://docs.mongodb.com/stitch/_images/create-server-side-functions-and-webhooks.png" />
+    </div>
+    <div class="card-content">
+      <div class="card-headline">Se connecter à MongoDB</div>
+      <div class="card-subheadline">Ce document vous aide à créer un connection à votre déploiement MongoDB en vous servant de nos APIs les plus populaires. <em>(En anglais)</em></div>
+    </div>
+  </a>
+  <a href="https://docs.mongodb.com/stitch" class="card card-large" id="tutorial-blog">
+    <div class="card-image"><img alt="_images/configure-rules-based-access-to-mongodb.png" src="https://docs.mongodb.com/stitch/_images/configure-rules-based-access-to-mongodb.png" />
+  </div>
+  <div class="card-content">
+    <div class="card-headline">MongoDB « Query Anywhere »</div>
+    <div class="card-subheadline">Le framework Stitch de MongoDB offre un environnement de développement Serverless qui est compatible avec divers architectures.<em>(En anglais)</em></div>
+  </div>
+</a>
+<a href="https://docs.mongodb.com/ecosystem/drivers/" class="card card-large" id="tutorial-dashboard">
+  <div class="card-image"><img alt="_images/dashboard.png" src="https://docs.mongodb.com/stitch/_images/dashboard.png" />
+  </div>
+  <div class="card-content">
+    <div class="card-headline">11+ APIs pour MongoDB</div>
+    <div class="card-subheadline">MongoDB est compatible avec plusieurs langages de programmation populaires aujourd'hui. <em>(En anglais)</em></div>
+  </div>
+</a>
+</div></div>
+
+<div class="section" id="stitch-tutorials">
+<h2 style="margin-top:43px;">Outils<a class="headerlink" href="#stitch-tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="card_group">
+
+<a href="https://docs.mongodb.com/bi-connector/current/" class="card card-large" id="tutorial-todo-web">
+  <div class="card-image"><img alt="_images/todo-web.png" src="https://docs.mongodb.com/stitch/_images/todo-web.png" />
+  </div>
+  <div class="card-content">
+    <div class="card-headline">BI Connector</div>
+    <div class="card-subheadline">Notre connecteur pour Business Intelligence (BI) vous permet d'utiliser MongoDB avec vos outils BI. <em>(En anglais)</em></div>
+  </div>
+</a>
+<a href="https://docs.mongodb.com/compass/current/" class="card card-large" id="tutorial-todo-android">
+  <div class="card-image"><img alt="_images/blog.png" src="https://docs.mongodb.com/stitch/_images/blog.png">
+  </div>
+  <div class="card-content">
+    <div class="card-headline">MongoDB Compass</div>
+    <div class="card-subheadline">Un interface utilisateur graphique (GUI) pour MongoDB qui supportant les requêtes simples et avancées. <em>(En anglais)</em></div>
+  </div>
+</a>
+
+</div></div>
+</div>
+
+                
+                  <div class="footer">
+                    <div class="copyright">
+                      <p>&copy; MongoDB, Inc 2008-present. MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc.</p>
+                    </div>
+                  </div>
+              </div></div>
+            </div>
+        </div>
+    </div>
+    <div class="right-column">
+      <div class="wrapper"> <div id='div-gpt-ad-1500065885324-0' style='height:600px; width:160px;'>
+   <script type='text/javascript'>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1500065885324-0'); });
+   </script>
+</div>
+            <div class="social">
+               <a class="slack-icon" href="https://slackpass.io/mongo-db?jmp=docs" title="https://slackpass.io/mongo-db?jmp=docs"><i class="fab fa-slack" aria-hidden="true"></i></a>
+               <a class="twitter-icon" href="https://twitter.com/MongoDB" title="https://twitter.com/MongoDB"><i class="fab fa-twitter-square"></i></a>
+               <a class="youtube-icon" href="https://www.youtube.com/user/MongoDB" title="https://www.youtube.com/user/MongoDB"><i class="fab fa-youtube-square"></i></a>
+               <a class="facebook-icon" href="https://www.facebook.com/mongodb" title="https://www.facebook.com/mongodb"><i class="fab fa-facebook-square"></i></a>
+               <a class="stack-overflow-icon" href="https://stackoverflow.com/tags/mongodb/info" title="https://stackoverflow.com/tags/mongodb/info"><i class="fab fa-stack-overflow" aria-hidden="true"></i></a>
+            </div>
+        
+         
+      </div>
+    </div>
+    
+      <div id="rating-panel"></div>
+    
+    <div class="clearfix"></div>
+  </div>
+  
+
+  <script type="text/javascript">
+  // Bootstrap array of links that should trigger a full page reload
+  window.docsExcludedNav = ['/reference/stitch-client', '/mongodb/mongodb-actions', '/mongodb/mongodb-rules', '/rules/mongodb-rules', '/tutorials', '/tutorials/todo-web', '/reference/expansions', '/functions', '/rules', '/services', '/users', '/reference/deprecated-services/amazon-s3', '/reference/deprecated-services/amazon-ses', '/reference/partner-services/github', '/reference/partner-services/http', '/reference/partner-services/push-notifications', '/reference/partner-services/twilio'];
+  </script></body>
+</html>
